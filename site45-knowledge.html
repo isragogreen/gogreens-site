@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoGreens - Knowledge Center | QA Testing Resources & Best Practices</title>
+    <meta name="description" content="Access comprehensive QA testing resources, best practices, case studies, and industry insights. Stay updated with latest testing methodologies and trends.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: 222.2 84% 4.9%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 210 40% 96%;
+            --secondary-foreground: 222.2 84% 4.9%;
+            --muted: 210 40% 96%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 210 40% 96%;
+            --accent-foreground: 222.2 84% 4.9%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 222.2 84% 4.9%;
+            --radius: 0.5rem;
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+
+            --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(220 100% 20%));
+            --gradient-hero: linear-gradient(135deg, hsl(210 100% 98%), hsl(220 100% 95%));
+            --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(210 100% 92%));
+            
+            --shadow-soft: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: hsl(var(--foreground));
+            background-color: hsl(var(--background));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        .header {
+            background: hsl(var(--background));
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            background: var(--gradient-primary);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: hsl(var(--primary-foreground));
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: hsl(var(--foreground));
+        }
+
+        .logo-tagline {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            display: none;
+        }
+
+        @media (min-width: 640px) {
+            .logo-tagline {
+                display: block;
+            }
+        }
+
+        .nav {
+            display: none;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .nav {
+                display: flex;
+            }
+        }
+
+        .nav-item {
+            position: relative;
+            color: hsl(var(--foreground));
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: hsl(var(--primary));
+        }
+
+        .cta-button {
+            display: none;
+            background: var(--gradient-primary);
+            color: hsl(var(--primary-foreground));
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        @media (min-width: 768px) {
+            .cta-button {
+                display: inline-flex;
+            }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            padding: 5rem 0 7rem;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            color: hsl(var(--primary));
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            color: hsl(var(--foreground));
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        .hero-title .highlight {
+            color: hsl(var(--primary));
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: hsl(var(--muted-foreground));
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .button-primary {
+            background: var(--gradient-primary);
+            color: hsl(var(--primary-foreground));
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Knowledge Section */
+        .knowledge-section {
+            padding: 5rem 0;
+        }
+
+        .knowledge-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .knowledge-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .knowledge-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .knowledge-card {
+            background: hsl(var(--card));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .knowledge-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            background: var(--gradient-accent);
+        }
+
+        .card-category {
+            color: hsl(var(--primary));
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            margin-bottom: 0.5rem;
+        }
+
+        .card-date {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-description {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-tag {
+            background: hsl(var(--secondary));
+            color: hsl(var(--secondary-foreground));
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .card-link {
+            color: hsl(var(--primary));
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: hsl(var(--foreground));
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: hsl(var(--muted-foreground));
+            line-height: 1.7;
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 3rem 0;
+            background: var(--gradient-hero);
+        }
+
+        .categories-grid {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .categories-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        .category-link {
+            background: hsl(var(--card));
+            padding: 1rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: hsl(var(--foreground));
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .category-link:hover {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: hsl(var(--card));
+            border-top: 1px solid hsl(var(--border));
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: hsl(var(--muted-foreground));
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: hsl(var(--primary));
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">GG</div>
+                    <span class="logo-text">GoGreens</span>
+                    <span class="logo-tagline">Quality That Creates Value</span>
+                </div>
+                
+                <nav class="nav">
+                    <a href="site45-qa.html" class="nav-item">QA Services</a>
+                    <a href="site45-ai.html" class="nav-item">AI Services</a>
+                    <a href="site45-partner.html" class="nav-item">Why Partner With Us</a>
+                    <a href="site45-knowledge.html" class="nav-item active">Knowledge Center</a>
+                    <a href="site45-about.html" class="nav-item">About Us</a>
+                </nav>
+
+                <a href="site45.html" class="cta-button">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-badge">QA Knowledge Hub</p>
+                
+                <h1 class="hero-title">
+                    <span class="highlight">Knowledge Center</span> & Resources
+                </h1>
+                
+                <p class="hero-description">
+                    Access comprehensive QA testing resources, industry best practices, case studies, and insights to enhance 
+                    your software quality assurance knowledge and stay ahead of industry trends.
+                </p>
+                
+                <a href="#" class="button-primary">Explore Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Resource Categories</h2>
+            <div class="categories-grid">
+                <a href="#" class="category-link">Best Practices</a>
+                <a href="#" class="category-link">Case Studies</a>
+                <a href="#" class="category-link">White Papers</a>
+                <a href="#" class="category-link">Tutorials</a>
+                <a href="#" class="category-link">Industry Reports</a>
+                <a href="#" class="category-link">Tools & Frameworks</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Section -->
+    <section class="knowledge-section">
+        <div class="container">
+            <h2 class="section-title">Latest Resources</h2>
+            <p class="section-description">
+                Stay updated with the latest trends, methodologies, and insights in quality assurance and software testing.
+            </p>
+            
+            <div class="knowledge-grid">
+                <article class="knowledge-card">
+                    <div class="card-header">
+                        <div class="card-category">Best Practices</div>
+                        <h3 class="card-title">Complete Guide to Test Automation Strategy</h3>
+                        <div class="card-date">December 10, 2024</div>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">
+                            Learn how to develop a comprehensive test automation strategy that maximizes ROI, reduces maintenance overhead, 
+                            and ensures sustainable test automation practices.
+                        </p>
+                        <div class="card-tags">
+                            <span class="card-tag">Automation</span>
+                            <span class="card-tag">Strategy</span>
+                            <span class="card-tag">ROI</span>
+                        </div>
+                        <a href="#" class="card-link">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="knowledge-card">
+                    <div class="card-header">
+                        <div class="card-category">Case Study</div>
+                        <h3 class="card-title">How E-commerce Giant Reduced Testing Time by 70%</h3>
+                        <div class="card-date">December 8, 2024</div>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">
+                            Discover how a leading e-commerce company transformed their testing process using AI-powered automation 
+                            and parallel testing strategies to achieve faster releases.
+                        </p>
+                        <div class="card-tags">
+                            <span class="card-tag">E-commerce</span>
+                            <span class="card-tag">AI Testing</span>
+                            <span class="card-tag">Performance</span>
+                        </div>
+                        <a href="#" class="card-link">Read Case Study →</a>
+                    </div>
+                </article>
+
+                <article class="knowledge-card">
+                    <div class="card-header">
+                        <div class="card-category">White Paper</div>
+                        <h3 class="card-title">The Future of Quality Assurance: AI and ML Trends</h3>
+                        <div class="card-date">December 5, 2024</div>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">
+                            Explore emerging trends in AI and machine learning for quality assurance, including predictive testing, 
+                            intelligent test generation, and autonomous QA processes.
+                        </p>
+                        <div class="card-tags">
+                            <span class="card-tag">AI/ML</span>
+                            <span class="card-tag">Future Trends</span>
+                            <span class="card-tag">Innovation</span>
+                        </div>
+                        <a href="#" class="card-link">Download Paper →</a>
+                    </div>
+                </article>
+
+                <article class="knowledge-card">
+                    <div class="card-header">
+                        <div class="card-category">Tutorial</div>
+                        <h3 class="card-title">Setting Up CI/CD Pipeline with Automated Testing</h3>
+                        <div class="card-date">December 3, 2024</div>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">
+                            Step-by-step guide to implementing continuous integration and deployment pipelines with comprehensive 
+                            automated testing integration for faster, more reliable releases.
+                        </p>
+                        <div class="card-tags">
+                            <span class="card-tag">CI/CD</span>
+                            <span class="card-tag">DevOps</span>
+                            <span class="card-tag">Tutorial</span>
+                        </div>
+                        <a href="#" class="card-link">View Tutorial →</a>
+                    </div>
+                </article>
+
+                <article class="knowledge-card">
+                    <div class="card-header">
+                        <div class="card-category">Industry Report</div>
+                        <h3 class="card-title">State of QA Testing 2024: Industry Insights</h3>
+                        <div class="card-date">December 1, 2024</div>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">
+                            Comprehensive analysis of current QA testing trends, challenges, and opportunities based on surveys 
+                            from 1000+ QA professionals across various industries.
+                        </p>
+                        <div class="card-tags">
+                            <span class="card-tag">Industry Report</span>
+                            <span class="card-tag">Trends</span>
+                            <span class="card-tag">Survey</span>
+                        </div>
+                        <a href="#" class="card-link">Download Report →</a>
+                    </div>
+                </article>
+
+                <article class="knowledge-card">
+                    <div class="card-header">
+                        <div class="card-category">Tools & Frameworks</div>
+                        <h3 class="card-title">Top 10 Open Source Testing Tools in 2024</h3>
+                        <div class="card-date">November 28, 2024</div>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">
+                            Comprehensive review of the most effective open-source testing tools available in 2024, 
+                            including feature comparisons, use cases, and implementation guides.
+                        </p>
+                        <div class="card-tags">
+                            <span class="card-tag">Open Source</span>
+                            <span class="card-tag">Tools</span>
+                            <span class="card-tag">Comparison</span>
+                        </div>
+                        <a href="#" class="card-link">Explore Tools →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-nav">
+                    <a href="site45.html">Home</a>
+                    <a href="site45-qa.html">QA Services</a>
+                    <a href="site45-ai.html">AI Services</a>
+                    <a href="site45-partner.html">Why Partner</a>
+                    <a href="site45-knowledge.html">Knowledge Center</a>
+                    <a href="site45-about.html">About Us</a>
+                </div>
+                <p>&copy; 2025 GoGreens. All rights reserved. Quality That Creates Value.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

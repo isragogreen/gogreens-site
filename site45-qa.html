@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoGreens - QA Services | Comprehensive Quality Assurance Solutions</title>
+    <meta name="description" content="Professional QA testing services including automated testing, manual testing, performance testing, and security testing. Expert quality assurance solutions.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: 222.2 84% 4.9%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 210 40% 96%;
+            --secondary-foreground: 222.2 84% 4.9%;
+            --muted: 210 40% 96%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 210 40% 96%;
+            --accent-foreground: 222.2 84% 4.9%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 222.2 84% 4.9%;
+            --radius: 0.5rem;
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+
+            --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(220 100% 20%));
+            --gradient-hero: linear-gradient(135deg, hsl(210 100% 98%), hsl(220 100% 95%));
+            --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(210 100% 92%));
+            
+            --shadow-soft: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: hsl(var(--foreground));
+            background-color: hsl(var(--background));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        .header {
+            background: hsl(var(--background));
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            background: var(--gradient-primary);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: hsl(var(--primary-foreground));
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: hsl(var(--foreground));
+        }
+
+        .logo-tagline {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            display: none;
+        }
+
+        @media (min-width: 640px) {
+            .logo-tagline {
+                display: block;
+            }
+        }
+
+        .nav {
+            display: none;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .nav {
+                display: flex;
+            }
+        }
+
+        .nav-item {
+            position: relative;
+            color: hsl(var(--foreground));
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: hsl(var(--primary));
+        }
+
+        .cta-button {
+            display: none;
+            background: var(--gradient-primary);
+            color: hsl(var(--primary-foreground));
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        @media (min-width: 768px) {
+            .cta-button {
+                display: inline-flex;
+            }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            padding: 5rem 0 7rem;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            color: hsl(var(--primary));
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            color: hsl(var(--foreground));
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        .hero-title .highlight {
+            color: hsl(var(--primary));
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: hsl(var(--muted-foreground));
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .button-primary {
+            background: var(--gradient-primary);
+            color: hsl(var(--primary-foreground));
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 5rem 0;
+        }
+
+        .services-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background: hsl(var(--card));
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .service-icon {
+            width: 4rem;
+            height: 4rem;
+            background: var(--gradient-primary);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: hsl(var(--primary-foreground));
+            font-size: 2rem;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .feature-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            background: hsl(var(--primary));
+            border-radius: 50%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: hsl(var(--foreground));
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: hsl(var(--muted-foreground));
+            line-height: 1.7;
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: hsl(var(--card));
+            border-top: 1px solid hsl(var(--border));
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: hsl(var(--muted-foreground));
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: hsl(var(--primary));
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">GG</div>
+                    <span class="logo-text">GoGreens</span>
+                    <span class="logo-tagline">Quality That Creates Value</span>
+                </div>
+                
+                <nav class="nav">
+                    <a href="site45-qa.html" class="nav-item active">QA Services</a>
+                    <a href="site45-ai.html" class="nav-item">AI Services</a>
+                    <a href="site45-partner.html" class="nav-item">Why Partner With Us</a>
+                    <a href="site45-knowledge.html" class="nav-item">Knowledge Center</a>
+                    <a href="site45-about.html" class="nav-item">About Us</a>
+                </nav>
+
+                <a href="site45.html" class="cta-button">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-badge">Professional QA Testing Services</p>
+                
+                <h1 class="hero-title">
+                    Comprehensive <span class="highlight">Quality Assurance</span> Solutions
+                </h1>
+                
+                <p class="hero-description">
+                    From manual testing to AI-powered automation, our QA services ensure your software meets the highest quality standards. 
+                    We provide end-to-end testing solutions that identify issues early and prevent costly production bugs.
+                </p>
+                
+                <a href="#" class="button-primary">Get QA Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our QA Testing Services</h2>
+            <p class="section-description">
+                We offer a complete range of quality assurance services designed to ensure your software performs flawlessly across all environments and use cases.
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3 class="service-title">Manual Testing</h3>
+                    <p class="service-description">
+                        Comprehensive manual testing by experienced QA engineers to identify usability issues and edge cases that automated testing might miss.
+                    </p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Functional Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Usability Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Exploratory Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Regression Testing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3 class="service-title">Automated Testing</h3>
+                    <p class="service-description">
+                        Advanced test automation frameworks that provide fast, reliable, and repeatable testing processes for continuous integration.
+                    </p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Test Framework Setup</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>CI/CD Integration</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>API Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>UI Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3 class="service-title">Performance Testing</h3>
+                    <p class="service-description">
+                        Load testing, stress testing, and performance optimization to ensure your application can handle real-world usage demands.
+                    </p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Load Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Stress Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Volume Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Performance Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3 class="service-title">Security Testing</h3>
+                    <p class="service-description">
+                        Comprehensive security assessments to identify vulnerabilities and ensure your application meets security compliance standards.
+                    </p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Vulnerability Assessment</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Penetration Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>OWASP Compliance</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Security Audits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3 class="service-title">Mobile Testing</h3>
+                    <p class="service-description">
+                        Specialized testing for mobile applications across different devices, operating systems, and network conditions.
+                    </p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Cross-Platform Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Device Compatibility</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Network Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Battery Usage Testing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3 class="service-title">API Testing</h3>
+                    <p class="service-description">
+                        Thorough testing of APIs to ensure proper functionality, reliability, performance, and security of your backend services.
+                    </p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>REST API Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>GraphQL Testing</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Data Validation</span>
+                        </div>
+                        <div class="service-feature">
+                            <div class="feature-dot"></div>
+                            <span>Integration Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-nav">
+                    <a href="site45.html">Home</a>
+                    <a href="site45-qa.html">QA Services</a>
+                    <a href="site45-ai.html">AI Services</a>
+                    <a href="site45-partner.html">Why Partner</a>
+                    <a href="site45-knowledge.html">Knowledge Center</a>
+                    <a href="site45-about.html">About Us</a>
+                </div>
+                <p>&copy; 2025 GoGreens. All rights reserved. Quality That Creates Value.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

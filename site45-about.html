@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoGreens - About Us | Expert QA Testing Company</title>
+    <meta name="description" content="Learn about GoGreens, a leading QA testing company with 15+ years of experience, expert engineers, and proven track record in delivering quality assurance solutions.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: 222.2 84% 4.9%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 210 40% 96%;
+            --secondary-foreground: 222.2 84% 4.9%;
+            --muted: 210 40% 96%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 210 40% 96%;
+            --accent-foreground: 222.2 84% 4.9%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 222.2 84% 4.9%;
+            --radius: 0.5rem;
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+
+            --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(220 100% 20%));
+            --gradient-hero: linear-gradient(135deg, hsl(210 100% 98%), hsl(220 100% 95%));
+            --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(210 100% 92%));
+            
+            --shadow-soft: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: hsl(var(--foreground));
+            background-color: hsl(var(--background));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        .header {
+            background: hsl(var(--background));
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            background: var(--gradient-primary);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: hsl(var(--primary-foreground));
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: hsl(var(--foreground));
+        }
+
+        .logo-tagline {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            display: none;
+        }
+
+        @media (min-width: 640px) {
+            .logo-tagline {
+                display: block;
+            }
+        }
+
+        .nav {
+            display: none;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .nav {
+                display: flex;
+            }
+        }
+
+        .nav-item {
+            position: relative;
+            color: hsl(var(--foreground));
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: hsl(var(--primary));
+        }
+
+        .cta-button {
+            display: none;
+            background: var(--gradient-primary);
+            color: hsl(var(--primary-foreground));
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        @media (min-width: 768px) {
+            .cta-button {
+                display: inline-flex;
+            }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            padding: 5rem 0 7rem;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            color: hsl(var(--primary));
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            color: hsl(var(--foreground));
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        .hero-title .highlight {
+            color: hsl(var(--primary));
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: hsl(var(--muted-foreground));
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .button-primary {
+            background: var(--gradient-primary);
+            color: hsl(var(--primary-foreground));
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 5rem 0;
+        }
+
+        .about-grid {
+            display: grid;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: hsl(var(--foreground));
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .about-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            color: hsl(var(--muted-foreground));
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-img {
+            width: 100%;
+            max-width: 24rem;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-large);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 3rem 0;
+            background: var(--gradient-hero);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            text-align: center;
+            background: hsl(var(--card));
+            padding: 2rem 1rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: hsl(var(--primary));
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            font-weight: 600;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 5rem 0;
+        }
+
+        .values-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .value-card {
+            background: hsl(var(--card));
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .value-icon {
+            width: 4rem;
+            height: 4rem;
+            background: var(--gradient-primary);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: hsl(var(--primary-foreground));
+            font-size: 2rem;
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.7;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: hsl(var(--foreground));
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: hsl(var(--muted-foreground));
+            line-height: 1.7;
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 5rem 0;
+            background: var(--gradient-accent);
+        }
+
+        .mission-content {
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .mission-text {
+            font-size: 1.5rem;
+            color: hsl(var(--foreground));
+            font-weight: 500;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .mission-text {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: hsl(var(--card));
+            border-top: 1px solid hsl(var(--border));
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: hsl(var(--muted-foreground));
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: hsl(var(--primary));
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">GG</div>
+                    <span class="logo-text">GoGreens</span>
+                    <span class="logo-tagline">Quality That Creates Value</span>
+                </div>
+                
+                <nav class="nav">
+                    <a href="site45-qa.html" class="nav-item">QA Services</a>
+                    <a href="site45-ai.html" class="nav-item">AI Services</a>
+                    <a href="site45-partner.html" class="nav-item">Why Partner With Us</a>
+                    <a href="site45-knowledge.html" class="nav-item">Knowledge Center</a>
+                    <a href="site45-about.html" class="nav-item active">About Us</a>
+                </nav>
+
+                <a href="site45.html" class="cta-button">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-badge">Our Story</p>
+                
+                <h1 class="hero-title">
+                    About <span class="highlight">GoGreens</span>
+                </h1>
+                
+                <p class="hero-description">
+                    For over 2 years, GoGreens has been at the forefront of quality assurance innovation, 
+                    helping companies worldwide deliver exceptional software through expert testing solutions and cutting-edge methodologies.
+                </p>
+                
+                <a href="#" class="button-primary">Join Our Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Expert Engineers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>Our Journey to Excellence</h2>
+                    <p>
+                        Founded in 2009, GoGreens began with a simple yet powerful vision: to transform how companies approach 
+                        software quality assurance. What started as a small team of passionate QA engineers has evolved into 
+                        a leading quality assurance company serving clients across the globe.
+                    </p>
+                    <p>
+                        Today, we combine deep industry expertise with cutting-edge AI and automation technologies to deliver 
+                        testing solutions that not only catch bugs but prevent them. Our team of certified professionals works 
+                        around the clock to ensure your software meets the highest standards of quality, performance, and security.
+                    </p>
+                    <p>
+                        We believe quality isn't just about finding defects—it's about creating value, building trust, and 
+                        enabling our clients to deliver exceptional user experiences that drive business growth.
+                    </p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="QA_testphoto.jpg" alt="GoGreens QA team collaboration" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <h2 class="section-title">Our Mission</h2>
+                <p class="mission-text">
+                    "To empower organizations worldwide with innovative quality assurance solutions that transform software development, 
+                    reduce risk, and create lasting value through excellence in testing."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+            <p class="section-description">
+                The principles that guide everything we do and define how we work with our clients and each other.
+            </p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">
+                        We are committed to delivering the highest quality in everything we do, from our testing processes 
+                        to our client relationships. Excellence is not just our goal—it's our standard.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">
+                        We continuously explore and adopt cutting-edge technologies and methodologies to stay ahead of industry 
+                        trends and provide our clients with the most advanced testing solutions.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3 class="value-title">Partnership</h3>
+                    <p class="value-description">
+                        We view our clients as true partners, working collaboratively to understand their unique challenges 
+                        and developing customized solutions that drive real business value.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🔍</div>
+                    <h3 class="value-title">Transparency</h3>
+                    <p class="value-description">
+                        We believe in open, honest communication and provide complete visibility into our processes, 
+                        progress, and results to build trust and ensure successful outcomes.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3 class="value-title">Agility</h3>
+                    <p class="value-description">
+                        We adapt quickly to changing requirements and market conditions, ensuring our clients can respond 
+                        rapidly to opportunities while maintaining the highest quality standards.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3 class="value-title">Growth</h3>
+                    <p class="value-description">
+                        We are committed to continuous learning and improvement, both for our team and our clients, 
+                        fostering an environment where everyone can reach their full potential.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-nav">
+                    <a href="site45.html">Home</a>
+                    <a href="site45-qa.html">QA Services</a>
+                    <a href="site45-ai.html">AI Services</a>
+                    <a href="site45-partner.html">Why Partner</a>
+                    <a href="site45-knowledge.html">Knowledge Center</a>
+                    <a href="site45-about.html">About Us</a>
+                </div>
+                <p>&copy; 2025 GoGreens. All rights reserved. Quality That Creates Value.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
