@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="me">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoGreens - Ekspertne QA Usluge Testiranja | Kvalitet Koji Stvara Vrijednost</title>
+    <meta name="description" content="Ekspertne QA usluge testiranja sa AI-powered automatizacijom, posvećenim timovima i sveobuhvatnim rješenjima za osiguranje kvaliteta. Povjereno od vodećih kompanija širom svijeta.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: 222.2 84% 4.9%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 210 40% 96%;
+            --secondary-foreground: 222.2 84% 4.9%;
+            --muted: 210 40% 96%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 210 40% 96%;
+            --accent-foreground: 222.2 84% 4.9%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 222.2 84% 4.9%;
+            --radius: 0.5rem;
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+
+            --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(220 100% 20%));
+            --gradient-hero: linear-gradient(135deg, hsl(210 100% 98%), hsl(220 100% 95%));
+            --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(210 100% 92%));
+            
+            --shadow-soft: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: hsl(var(--foreground));
+            background-color: hsl(var(--background));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Header */
+        .header {
+            background: hsl(var(--background));
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            background: var(--gradient-primary);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: hsl(var(--primary-foreground));
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: hsl(var(--foreground));
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        .logo-tagline {
+            font-size: 1.075rem;
+            color: hsl(var(--muted-foreground));
+            font-weight: bold;
+            display: none;
+        }
+
+        @media (min-width: 640px) {
+            .logo-tagline {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-tagline {
+                display: none;
+            }
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .language-switcher select {
+            background: hsl(var(--background));
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            padding: 0.25rem 0.5rem;
+            color: hsl(var(--foreground));
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+
+        .language-switcher select:focus {
+            outline: none;
+            border-color: hsl(var(--primary));
+        }
+
+        @media (max-width: 768px) {
+            .language-switcher {
+                margin-left: 0;
+                margin-right: 0.5rem;
+            }
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .mobile-menu-button span {
+            display: block;
+            width: 1.5rem;
+            height: 2px;
+            background: hsl(var(--foreground));
+            margin: 2px 0;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-button.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-button.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-button.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-button {
+                display: none;
+            }
+        }
+
+        /* Navigation */
+        .nav {
+            display: none;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .nav {
+                display: flex;
+            }
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: hsl(var(--background));
+            border-bottom: 1px solid hsl(var(--border));
+            box-shadow: var(--shadow-large);
+            padding: 1rem;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-nav {
+                display: none !important;
+            }
+        }
+
+        .nav-item {
+            position: relative;
+            color: hsl(var(--foreground));
+            text-decoration: none;
+            transition: color 0.2s;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-item:hover {
+            color: hsl(var(--primary));
+        }
+
+        .mobile-nav .nav-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+
+        .mobile-nav .nav-item:last-child {
+            border-bottom: none;
+        }
+
+        .cta-button {
+            display: none;
+            background: var(--gradient-primary);
+            color: hsl(var(--primary-foreground));
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .cta-button {
+                display: inline-flex;
+            }
+        }
+
+        .mobile-nav .cta-button {
+            display: inline-flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            padding: 3rem 0 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 4rem 0 6rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 5rem 0 7rem;
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-grid {
+                gap: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content {
+                text-align: left;
+            }
+        }
+
+        .hero-badge {
+            color: hsl(var(--primary));
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        @media (min-width: 768px) {
+            .hero-badge {
+                font-size: 0.875rem;
+            }
+        }
+
+        .hero-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            line-height: 1.2;
+            color: hsl(var(--foreground));
+        }
+
+        @media (min-width: 480px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .hero-title {
+                font-size: 3.75rem;
+            }
+        }
+
+        .hero-title .highlight {
+            color: hsl(var(--primary));
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+            .hero-description {
+                font-size: 1.125rem;
+                line-height: 1.7;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-description {
+                max-width: 32rem;
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-buttons {
+                justify-content: flex-start;
+            }
+        }
+
+        .button-primary {
+            background: var(--gradient-primary);
+            color: hsl(var(--primary-foreground));
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-medium);
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (max-width: 640px) {
+            .button-primary {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+            }
+        }
+
+        .button-outline {
+            border: 1px solid hsl(var(--primary));
+            color: hsl(var(--primary));
+            background: transparent;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 640px) {
+            .button-outline {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+            }
+        }
+
+        .button-outline:hover {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid hsl(var(--border));
+        }
+
+        @media (min-width: 768px) {
+            .hero-stats {
+                gap: 2rem;
+            }
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: hsl(var(--primary));
+        }
+
+        @media (min-width: 768px) {
+            .stat-number {
+                font-size: 1.875rem;
+            }
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        @media (min-width: 768px) {
+            .stat-label {
+                font-size: 0.875rem;
+            }
+        }
+
+        .hero-image {
+            position: relative;
+            order: -1;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-image {
+                order: 0;
+            }
+        }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-large);
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            .hero-img {
+                max-height: 500px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-img {
+                max-height: none;
+            }
+        }
+
+        /* Newsletter Section Styles */
+        .newsletter-section {
+            padding: 3rem 0;
+            background: hsl(var(--muted));
+        }
+
+        .newsletter-content {
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .newsletter-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .newsletter-info h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: hsl(var(--foreground));
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .newsletter-info h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        .newsletter-info p {
+            color: hsl(var(--muted-foreground));
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+            .newsletter-info p {
+                font-size: 1.125rem;
+                line-height: 1.7;
+            }
+        }
+
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .newsletter {
+                gap: 1rem;
+            }
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 480px) {
+            .newsletter-form {
+                flex-direction: row;
+            }
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            background: hsl(var(--background));
+            color: hsl(var(--foreground));
+            font-size: 0.875rem;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: hsl(var(--primary));
+            box-shadow: 0 0 0 2px hsl(var(--primary) / 0.1);
+        }
+
+        .newsletter-button {
+            background: var(--gradient-primary);
+            color: hsl(var(--primary-foreground));
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .newsletter-button:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .newsletter-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .newsletter-status {
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .newsletter-status.success {
+            background: hsl(142.1 76.2% 36.3% / 0.1);
+            color: hsl(142.1 76.2% 36.3%);
+            border: 1px solid hsl(142.1 76.2% 36.3% / 0.2);
+            display: block;
+        }
+
+        .newsletter-status.error {
+            background: hsl(0 84.2% 60.2% / 0.1);
+            color: hsl(0 84.2% 60.2%);
+            border: 1px solid hsl(0 84.2% 60.2% / 0.2);
+            display: block;
+        }
+
+        .social-links {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid hsl(var(--border));
+        }
+
+        .social-links h4 {
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .social-links h4 {
+                font-size: 1rem;
+            }
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 480px) {
+            .social-buttons {
+                flex-direction: row;
+                gap: 0.75rem;
+            }
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background: hsl(var(--background));
+            color: hsl(var(--foreground));
+            text-decoration: none;
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .social-button:hover {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            border-color: hsl(var(--primary));
+            transform: translateY(-1px);
+        }
+
+        .social-icon {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: hsl(var(--card));
+            border-top: 1px solid hsl(var(--border));
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .footer-company {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-company p {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+            font-size: 0.875rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .contact-icon {
+            font-size: 1rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            background: hsl(var(--muted));
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: hsl(var(--primary));
+            transform: translateY(-1px);
+        }
+
+        .footer-section h3 {
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-section h3 {
+                font-size: 1rem;
+            }
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-link {
+            color: hsl(var(--muted-foreground));
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: hsl(var(--primary));
+        }
+
+        .footer-bottom {
+            padding: 1.5rem 0;
+            border-top: 1px solid hsl(var(--border));
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .footer-bottom-text {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom-text {
+                text-align: left;
+            }
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom-links {
+                justify-content: flex-end;
+            }
+        }
+
+        .footer-bottom-link {
+            color: hsl(var(--muted-foreground));
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-bottom-link:hover {
+            color: hsl(var(--primary));
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">GoG</div>
+                    <span class="logo-text">GoGreens</span>
+                    <span class="logo-tagline">Kvalitet Koji Stvara Vrijednost</span>
+                </div>
+                
+                <nav class="nav">
+                    <a href="site45-qa-me.html" class="nav-item">QA Usluge</a>
+                    <a href="site45-ai-me.html" class="nav-item">AI Usluge</a>
+                    <a href="site45-partner-me.html" class="nav-item">Zašto Sa Nama</a>
+                    <a href="site45-knowledge-me.html" class="nav-item">Centar Znanja</a>
+                    <a href="site45-about-me.html" class="nav-item">O Nama</a>
+                </nav>
+
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div class="language-switcher">
+                        <select id="language-select" onchange="switchLanguage()">
+                            <option value="en">EN</option>
+                            <option value="me" selected>ME</option>
+                        </select>
+                    </div>
+                    <a href="site45-pricing-me.html" class="cta-button">Cijene</a>
+                </div>
+                
+                <button class="mobile-menu-button" id="mobile-menu-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav class="mobile-nav" id="mobile-nav">
+                    <a href="site45-qa-me.html" class="nav-item">QA Usluge</a>
+                    <a href="site45-ai-me.html" class="nav-item">AI Usluge</a>
+                    <a href="site45-partner-me.html" class="nav-item">Zašto Sa Nama</a>
+                    <a href="site45-knowledge-me.html" class="nav-item">Centar Znanja</a>
+                    <a href="site45-about-me.html" class="nav-item">O Nama</a>
+                    <div class="language-switcher" style="justify-content: center; margin: 1rem 0;">
+                        <select id="mobile-language-select" onchange="switchLanguage()">
+                            <option value="en">English</option>
+                            <option value="me" selected>Crnogorski</option>
+                        </select>
+                    </div>
+                    <a href="site45-pricing-me.html" class="cta-button">Cijene</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <p class="hero-badge">Ekspertni Test Inženjeri Koji Pružaju Efikasna Rješenja</p>
+                    
+                    <h1 class="hero-title">
+                        Izuzetni QA Timovi, <span class="highlight">Napravljeni</span> Za Vaš Uspjeh
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Svaki GoGreens QA tim je pažljivo sastavljen da kombinuje iskustvo, stručnost i posvećenost osiguravanju kvaliteta. 
+                        Sa našim strogim standardima zapošljavanja i sveobuhvatnim programima obuke, osiguravamo da je svaki inženjer opremljen da se uhvati u koštac sa vašim jedinstvenim izazovima.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="site45-contact-me.html" class="button-primary">Dobijte Visokokvalitetne Software QA Usluge Testiranja</a>
+                        <a href="site45-contact-me.html" class="button-outline">Saznajte Više</a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Isporučenih Projekata</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Godina Iskustva</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">99%</div>
+                            <div class="stat-label">Zadovoljstvo Klijenata</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <img src="QA_testphoto.jpg" alt="Profesionalna QA testiranje ilustracija sa 3D grafikonima i analitikom" class="hero-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-info">
+                    <h2>Ostanite Informisani</h2>
+                    <p>Dobijajte najnovije QA uvide i ažuriranja industrije direktno u vaš inbox</p>
+                </div>
+                <div class="newsletter">
+                    <div class="newsletter-form">
+                        <input type="email" id="newsletter-email-me" placeholder="Unesite vašu email adresu" class="newsletter-input">
+                        <button class="newsletter-button" onclick="subscribeNewsletterMe()">Pretplatite Se</button>
+                    </div>
+                    <div id="newsletter-status-me" class="newsletter-status"></div>
+                </div>
+                <div class="social-links">
+                    <h4>Pratite Nas</h4>
+                    <div class="social-buttons">
+                        <a href="https://x.com/unixrozi" target="_blank" class="social-button">
+                            <span class="social-icon">𝕏</span> @unixrozi
+                        </a>
+                        <a href="https://github.com/isragogreen" target="_blank" class="social-button">
+                            <span class="social-icon">⚡</span> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-company">
+                    <div class="logo">
+                        <div class="logo-icon">GoG</div>
+                        <span class="logo-text">GoGreens</span>
+                    </div>
+                    
+                    <p>
+                        Ekspertne QA usluge testiranja koje pružaju cost-effective rješenja za vaše potrebe kvaliteta softvera. 
+                        Pouzdani od strane vodećih kompanija širom svijeta.
+                    </p>
+
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <span>info@gogreens.online</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <span>+382 68-334611</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>Budva, Crna Gora</span>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="mailto:roza.unix@gmail.com" class="social-link">📧</a>
+                        <a href="https://x.com/RoziUnix" class="social-link">🐦</a>
+                        <a href="https://github.com/isragogreen" class="social-link">💼</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Usluge</h3>
+                    <div class="footer-links">
+                        <a href="site45-qa-me.html" class="footer-link">Manuelno Testiranje</a>
+                        <a href="site45-qa-me.html" class="footer-link">Automatsko Testiranje</a>
+                        <a href="site45-qa-me.html" class="footer-link">Testiranje Performansi</a>
+                        <a href="site45-qa-me.html" class="footer-link">Sigurnosno Testiranje</a>
+                        <a href="site45-qa-me.html" class="footer-link">Mobilno Testiranje</a>
+                        <a href="site45-qa-me.html" class="footer-link">API Testiranje</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Kompanija</h3>
+                    <div class="footer-links">
+                        <a href="site45-about-me.html" class="footer-link">O Nama</a>
+                        <a href="site45-team-me.html" class="footer-link">Naš Tim</a>
+                        <a href="site45-contact-me.html" class="footer-link">Karijere</a>
+                        <a href="site45-knowledge-me.html" class="footer-link">Studije Slučaja</a>
+                        <a href="site45-knowledge-me.html" class="footer-link">Blog</a>
+                        <a href="site45-contact-me.html" class="footer-link">Kontakt</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resursi</h3>
+                    <div class="footer-links">
+                        <a href="site45-knowledge-me.html" class="footer-link">Centar Znanja</a>
+                        <a href="site45-knowledge-me.html" class="footer-link">Bijeli Papiri</a>
+                        <a href="site45-knowledge-me.html" class="footer-link">Webinari</a>
+                        <a href="site45-knowledge-me.html" class="footer-link">Alati za Testiranje</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-text">
+                    © 2025 GoGreens QA. Sva prava zadržana. Kvalitet Koji Stvara Vrijednost.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#" class="footer-bottom-link">Politika Privatnosti</a>
+                    <a href="#" class="footer-bottom-link">Uslovi Korišćenja</a>
+                    <a href="#" class="footer-bottom-link">Cookie Politika</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "9RvHSlpnMHkCJwBC5",
+            });
+        })();
+    </script>
+
+    <script>
+        // Newsletter subscription functionality
+        function subscribeNewsletterMe() {
+            const emailInput = document.getElementById('newsletter-email-me');
+            const statusDiv = document.getElementById('newsletter-status-me');
+            const button = document.querySelector('.newsletter-button');
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showStatusMe('Molimo unesite vašu email adresu.', 'error');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                showStatusMe('Molimo unesite validnu email adresu.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            button.disabled = true;
+            button.textContent = 'Šalje se...';
+            statusDiv.style.display = 'none';
+            
+            // Prepare template parameters
+            const templateParams = {
+                to_email: 'rozi.unix@gmail.com',
+                from_email: email,
+                subject: 'Zahtjev za Pretplatu na Newsletter',
+                message: `Novi zahtjev za pretplatu na newsletter od: ${email}\n\nMolimo dodajte ovu email adresu na GoGreens newsletter mailing listu.\n\nVrijeme: ${new Date().toLocaleString()}`
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('service_2jjjllk', 'template_eprag4z', templateParams)
+                .then(function(response) {
+                    console.log('Newsletter subscription sent successfully!', response.status, response.text);
+                    showStatusMe('Hvala vam na pretplati! Dobijat ćete naša najnovija ažuriranja.', 'success');
+                    emailInput.value = '';
+                }, function(error) {
+                    console.error('Failed to send newsletter subscription:', error);
+                    showStatusMe('Dogodila se greška pri procesiranju vaše pretplate. Molimo pokušajte ponovo.', 'error');
+                })
+                .finally(function() {
+                    // Reset button state
+                    button.disabled = false;
+                    button.textContent = 'Pretplatite Se';
+                });
+        }
+        
+        function showStatusMe(message, type) {
+            const statusDiv = document.getElementById('newsletter-status-me');
+            statusDiv.textContent = message;
+            statusDiv.className = `newsletter-status ${type}`;
+            statusDiv.style.display = 'block';
+            
+            // Auto-hide after 5 seconds for success messages
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // Allow Enter key to submit newsletter
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailInput = document.getElementById('newsletter-email-me');
+            if (emailInput) {
+                emailInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        subscribeNewsletterMe();
+                    }
+                });
+            }
+        });
+        
+        // Language switching functionality
+        function switchLanguage() {
+            const languageSelect = document.getElementById('language-select');
+            const mobileLanguageSelect = document.getElementById('mobile-language-select');
+            
+            // Sync both selectors
+            const selectedLang = languageSelect ? languageSelect.value : mobileLanguageSelect.value;
+            if (languageSelect) languageSelect.value = selectedLang;
+            if (mobileLanguageSelect) mobileLanguageSelect.value = selectedLang;
+            
+            // Store language preference
+            localStorage.setItem('preferred-language', selectedLang);
+            
+            // Redirect to appropriate page
+            const currentPage = window.location.pathname.split('/').pop();
+            let targetPage;
+            
+            if (selectedLang === 'me') {
+                // Already on Montenegrin version
+                return;
+            } else {
+                // Switch to English version
+                if (currentPage === 'site45-me.html') {
+                    targetPage = 'site45.html';
+                } else {
+                    targetPage = currentPage.replace('-me.html', '.html');
+                }
+            }
+            
+            window.location.href = targetPage;
+        }
+        
+        // Set language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const preferredLang = localStorage.getItem('preferred-language') || 'me';
+            const languageSelect = document.getElementById('language-select');
+            const mobileLanguageSelect = document.getElementById('mobile-language-select');
+            
+            if (languageSelect) languageSelect.value = preferredLang;
+            if (mobileLanguageSelect) mobileLanguageSelect.value = preferredLang;
+        });
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            if (mobileMenuButton && mobileNav) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenuButton.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on nav items
+                const navItems = mobileNav.querySelectorAll('.nav-item, .cta-button');
+                navItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        mobileMenuButton.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenuButton.contains(event.target) && !mobileNav.contains(event.target)) {
+                        mobileMenuButton.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

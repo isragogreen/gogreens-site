@@ -54,7 +54,19 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 1.5rem;
+            }
         }
 
         /* Header */
@@ -72,12 +84,14 @@
             align-items: center;
             justify-content: space-between;
             height: 4rem;
+            position: relative;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            flex-shrink: 0;
         }
 
         .logo-icon {
@@ -99,6 +113,12 @@
             color: hsl(var(--foreground));
         }
 
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.1rem;
+            }
+        }
+
         .logo-tagline {
             font-size: 1.075rem;
             color: hsl(var(--muted-foreground));
@@ -112,6 +132,84 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .logo-tagline {
+                display: none;
+            }
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .language-switcher select {
+            background: hsl(var(--background));
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            padding: 0.25rem 0.5rem;
+            color: hsl(var(--foreground));
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+
+        .language-switcher select:focus {
+            outline: none;
+            border-color: hsl(var(--primary));
+        }
+
+        @media (max-width: 768px) {
+            .language-switcher {
+                margin-left: 0;
+                margin-right: 0.5rem;
+            }
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .mobile-menu-button span {
+            display: block;
+            width: 1.5rem;
+            height: 2px;
+            background: hsl(var(--foreground));
+            margin: 2px 0;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-button.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-button.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-button.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-button {
+                display: none;
+            }
+        }
+
+        /* Navigation */
         .nav {
             display: none;
             gap: 2rem;
@@ -123,15 +221,51 @@
             }
         }
 
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: hsl(var(--background));
+            border-bottom: 1px solid hsl(var(--border));
+            box-shadow: var(--shadow-large);
+            padding: 1rem;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-nav {
+                display: none !important;
+            }
+        }
+
         .nav-item {
             position: relative;
             color: hsl(var(--foreground));
             text-decoration: none;
             transition: color 0.2s;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid transparent;
         }
 
         .nav-item:hover, .nav-item.active {
             color: hsl(var(--primary));
+        }
+
+        .mobile-nav .nav-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+
+        .mobile-nav .nav-item:last-child {
+            border-bottom: none;
         }
 
         .cta-button {
@@ -144,12 +278,19 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.2s;
+            text-align: center;
         }
 
         @media (min-width: 768px) {
             .cta-button {
                 display: inline-flex;
             }
+        }
+
+        .mobile-nav .cta-button {
+            display: inline-flex;
+            justify-content: center;
+            margin-top: 1rem;
         }
 
         .cta-button:hover {
@@ -160,7 +301,19 @@
         /* Hero Section */
         .hero {
             background: var(--gradient-hero);
-            padding: 5rem 0 7rem;
+            padding: 3rem 0 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 4rem 0 6rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 5rem 0 7rem;
+            }
         }
 
         .hero-content {
@@ -172,18 +325,36 @@
         .hero-badge {
             color: hsl(var(--primary));
             font-weight: 600;
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 1rem;
         }
 
+        @media (min-width: 768px) {
+            .hero-badge {
+                font-size: 0.875rem;
+            }
+        }
+
         .hero-title {
-            font-size: 2.5rem;
+            font-size: 1.875rem;
             font-weight: bold;
             line-height: 1.2;
             color: hsl(var(--foreground));
             margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 480px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
         }
 
         @media (min-width: 1024px) {
@@ -197,10 +368,18 @@
         }
 
         .hero-description {
-            font-size: 1.125rem;
+            font-size: 1rem;
             color: hsl(var(--muted-foreground));
-            line-height: 1.7;
-            margin-bottom: 2rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-description {
+                font-size: 1.125rem;
+                line-height: 1.7;
+                margin-bottom: 2rem;
+            }
         }
 
         .button-primary {
@@ -380,7 +559,36 @@
                     <a href="site45-about.html" class="nav-item">About Us</a>
                 </nav>
 
-                <a href="site45.html" class="cta-button">Back to Home</a>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div class="language-switcher">
+                        <select id="language-select" onchange="switchLanguage()">
+                            <option value="en" selected>EN</option>
+                            <option value="me">ME</option>
+                        </select>
+                    </div>
+                    <a href="site45.html" class="cta-button">Back to Home</a>
+                </div>
+                
+                <button class="mobile-menu-button" id="mobile-menu-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav class="mobile-nav" id="mobile-nav">
+                    <a href="site45-qa.html" class="nav-item active">QA Services</a>
+                    <a href="site45-ai.html" class="nav-item">AI Services</a>
+                    <a href="site45-partner.html" class="nav-item">Why Partner With Us</a>
+                    <a href="site45-knowledge.html" class="nav-item">Knowledge Center</a>
+                    <a href="site45-about.html" class="nav-item">About Us</a>
+                    <div class="language-switcher" style="justify-content: center; margin: 1rem 0;">
+                        <select id="mobile-language-select" onchange="switchLanguage()">
+                            <option value="en" selected>🇺🇸 English</option>
+                            <option value="me">🇲🇪 Crnogorski</option>
+                        </select>
+                    </div>
+                    <a href="site45.html" class="cta-button">Back to Home</a>
+                </nav>
             </div>
         </div>
     </header>
@@ -589,5 +797,69 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Language switching functionality
+        function switchLanguage() {
+            const languageSelect = document.getElementById('language-select');
+            const mobileLanguageSelect = document.getElementById('mobile-language-select');
+            
+            // Sync both selectors
+            const selectedLang = languageSelect ? languageSelect.value : mobileLanguageSelect.value;
+            if (languageSelect) languageSelect.value = selectedLang;
+            if (mobileLanguageSelect) mobileLanguageSelect.value = selectedLang;
+            
+            // Store language preference
+            localStorage.setItem('preferred-language', selectedLang);
+            
+            // Redirect to appropriate page
+            const currentPage = window.location.pathname.split('/').pop();
+            let targetPage;
+            
+            if (selectedLang === 'en') {
+                // Already on English version
+                return;
+            } else {
+                // Switch to Montenegrin version
+                if (currentPage === 'site45-qa.html') {
+                    targetPage = 'site45-qa-me.html';
+                } else {
+                    targetPage = currentPage.replace('.html', '-me.html');
+                }
+            }
+            
+            window.location.href = targetPage;
+        }
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            if (mobileMenuButton && mobileNav) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenuButton.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on nav items
+                const navItems = mobileNav.querySelectorAll('.nav-item, .cta-button');
+                navItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        mobileMenuButton.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenuButton.contains(event.target) && !mobileNav.contains(event.target)) {
+                        mobileMenuButton.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

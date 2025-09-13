@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="me">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoGreens - Kontakt | Ekspertne QA Usluge Testiranja</title>
+    <meta name="description" content="Kontaktirajte GoGreens za profesionalne QA usluge testiranja i osiguranje kvaliteta. Odgovorićemo vam u roku od jednog radnog dana.">
+    
+    <style>
+        :root{--primary:222.2 84% 4.9%;--primary-foreground:210 40% 98%;--secondary:210 40% 96%;--secondary-foreground:222.2 84% 4.9%;--muted:210 40% 96%;--muted-foreground:215.4 16.3% 46.9%;--accent:210 40% 96%;--accent-foreground:222.2 84% 4.9%;--destructive:0 84.2% 60.2%;--destructive-foreground:210 40% 98%;--border:214.3 31.8% 91.4%;--input:214.3 31.8% 91.4%;--ring:222.2 84% 4.9%;--radius:.5rem;--background:0 0% 100%;--foreground:222.2 84% 4.9%;--card:0 0% 100%;--card-foreground:222.2 84% 4.9%;--popover:0 0% 100%;--popover-foreground:222.2 84% 4.9%;--gradient-primary:linear-gradient(135deg,hsl(var(--primary)),hsl(220 100% 20%));--gradient-hero:linear-gradient(135deg,hsl(210 100% 98%),hsl(220 100% 95%));--gradient-accent:linear-gradient(135deg,hsl(var(--accent)),hsl(210 100% 92%));--shadow-soft:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);--shadow-medium:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);--shadow-large:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;color:hsl(var(--foreground));background:hsl(var(--background))}
+        .container{max-width:1100px;margin:0 auto;padding:0 0.75rem}
+        @media (min-width: 640px){.container{padding:0 1rem}}
+        @media (min-width: 1024px){.container{padding:0 1.5rem}}
+        .header{background:hsl(var(--background));backdrop-filter:blur(10px);position:sticky;top:0;z-index:1000;border-bottom:1px solid hsl(var(--border))}
+        .header-content{display:flex;align-items:center;justify-content:space-between;height:4rem;position:relative}
+        .logo{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+        .logo-icon{width:2rem;height:2rem;background:var(--gradient-primary);border-radius:.5rem;display:flex;align-items:center;justify-content:center;color:hsl(var(--primary-foreground));font-weight:700;font-size:.875rem}
+        .logo-text{font-size:1.25rem;font-weight:700;color:hsl(var(--foreground))}
+        @media (max-width: 480px){.logo-text{font-size:1.1rem}}
+        .logo-tagline{font-size:1.075rem;color:hsl(var(--muted-foreground));font-weight:bold;display:none}
+        @media (min-width:640px){.logo-tagline{display:block}}
+        @media (max-width: 768px){.logo-tagline{display:none}}
+        .nav{display:none;gap:2rem}
+        @media (min-width:1024px){.nav{display:flex}}
+        .nav-item{color:hsl(var(--foreground));text-decoration:none;transition:color .2s;padding:.5rem 0}
+        .nav-item:hover,.nav-item.active{color:hsl(var(--primary))}
+        .cta-button{display:none;background:var(--gradient-primary);color:hsl(var(--primary-foreground));padding:.5rem 1rem;border:none;border-radius:var(--radius);text-decoration:none;font-weight:500;transition:all .2s;text-align:center}
+        @media (min-width:768px){.cta-button{display:inline-flex}}
+        .cta-button:hover{transform:translateY(-1px);box-shadow:var(--shadow-medium)}
+        .language-switcher{display:flex;align-items:center;gap:.5rem;margin-left:1rem}
+        .language-switcher select{background:hsl(var(--background));border:1px solid hsl(var(--border));border-radius:var(--radius);padding:.25rem .5rem;color:hsl(var(--foreground));font-size:.875rem;cursor:pointer}
+        .language-switcher select:focus{outline:none;border-color:hsl(var(--primary))}
+        @media (max-width:768px){.language-switcher{margin-left:0;margin-right:.5rem}}
+        .mobile-menu-button{display:flex;flex-direction:column;justify-content:center;align-items:center;width:2.5rem;height:2.5rem;background:none;border:none;cursor:pointer;padding:0}
+        .mobile-menu-button span{display:block;width:1.5rem;height:2px;background:hsl(var(--foreground));margin:2px 0;transition:all .3s}
+        .mobile-menu-button.active span:nth-child(1){transform:rotate(45deg) translate(5px, 5px)}
+        .mobile-menu-button.active span:nth-child(2){opacity:0}
+        .mobile-menu-button.active span:nth-child(3){transform:rotate(-45deg) translate(7px, -6px)}
+        @media (min-width:1024px){.mobile-menu-button{display:none}}
+        .mobile-nav{display:none;position:absolute;top:100%;left:0;right:0;background:hsl(var(--background));border-bottom:1px solid hsl(var(--border));box-shadow:var(--shadow-large);padding:1rem;flex-direction:column;gap:1rem}
+        .mobile-nav.active{display:flex}
+        @media (min-width:1024px){.mobile-nav{display:none !important}}
+        .mobile-nav .nav-item{padding:.75rem 0;border-bottom:1px solid hsl(var(--border))}
+        .mobile-nav .nav-item:last-child{border-bottom:none}
+        .mobile-nav .cta-button{display:inline-flex;justify-content:center;margin-top:1rem}
+        .hero{background:var(--gradient-hero);padding:3rem 0 5rem}
+        @media (min-width: 768px){.hero{padding:4rem 0 6rem}}
+        @media (min-width: 1024px){.hero{padding:5rem 0 7rem}}
+        .hero-content{text-align:center;max-width:48rem;margin:0 auto}
+        .hero-title{font-size:1.875rem;font-weight:700;line-height:1.2;color:hsl(var(--foreground));margin-bottom:1.5rem}
+        @media (min-width:480px){.hero-title{font-size:2.25rem}}
+        @media (min-width:768px){.hero-title{font-size:2.5rem}}
+        @media (min-width:1024px){.hero-title{font-size:3rem}}
+        .hero-title .highlight{color:hsl(var(--primary))}
+        .hero-description{font-size:1rem;color:hsl(var(--muted-foreground));line-height:1.6;margin-bottom:1rem}
+        @media (min-width:768px){.hero-description{font-size:1.125rem;line-height:1.7}}
+        .section{padding:3rem 0}
+        @media (min-width:768px){.section{padding:4rem 0}}
+        .grid{display:grid;gap:2rem}
+        @media (min-width:1024px){.grid.cols-2{grid-template-columns:1.3fr .7fr}}
+        .card{background:hsl(var(--card));padding:1.5rem;border-radius:1rem;border:1px solid hsl(var(--border));box-shadow:var(--shadow-soft)}
+        .label{display:block;font-weight:600;margin-bottom:.4rem}
+        .input,.textarea{width:100%;padding:.75rem .9rem;border:1px solid hsl(var(--border));border-radius:.6rem;background:hsl(var(--background));color:hsl(var(--foreground))}
+        .textarea{min-height:140px;resize:vertical}
+        .row{display:grid;gap:1rem}
+        @media (min-width:640px){.row{grid-template-columns:1fr 1fr}}
+        .button-primary{background:var(--gradient-primary);color:hsl(var(--primary-foreground));padding:.8rem 1.25rem;border:none;border-radius:.6rem;font-weight:600;cursor:pointer;transition:all .2s}
+        .button-primary:hover{transform:translateY(-1px);box-shadow:var(--shadow-medium)}
+        .button-primary:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+        .info{display:flex;flex-direction:column;gap:1rem}
+        .info-item{display:flex;gap:.6rem;align-items:flex-start}
+        .dot{width:.6rem;height:.6rem;background:hsl(var(--primary));border-radius:50%;margin-top:.45rem}
+        .footer{background:hsl(var(--card));border-top:1px solid hsl(var(--border));padding:2rem 0;margin-top:3rem}
+        .footer-content{text-align:center;color:hsl(var(--muted-foreground))}
+        .footer-nav{display:flex;justify-content:center;gap:2rem;margin-bottom:1rem;flex-wrap:wrap}
+        .footer-nav a{color:hsl(var(--muted-foreground));text-decoration:none;transition:color .2s}
+        .footer-nav a:hover{color:hsl(var(--primary))}
+        .form-message{padding:1rem;border-radius:.6rem;margin-top:1rem;font-weight:500}
+        .form-message-success{background:#dcfce7;color:#166534;border:1px solid #bbf7d0}
+        .form-message-error{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">GoG</div>
+                    <span class="logo-text">GoGreens</span>
+                    <span class="logo-tagline">Kvalitet Koji Stvara Vrijednost</span>
+                </div>
+                <nav class="nav">
+                    <a href="site45-qa-me.html" class="nav-item">QA Usluge</a>
+                    <a href="site45-ai-me.html" class="nav-item">AI Usluge</a>
+                    <a href="site45-partner-me.html" class="nav-item">Zašto Sa Nama</a>
+                    <a href="site45-knowledge-me.html" class="nav-item">Centar Znanja</a>
+                    <a href="site45-about-me.html" class="nav-item">O Nama</a>
+                </nav>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div class="language-switcher">
+                        <select id="language-select" onchange="switchLanguage()">
+                            <option value="en">🇺🇸 EN</option>
+                            <option value="me" selected>🇲🇪 ME</option>
+                        </select>
+                    </div>
+                    <a href="site45-pricing-me.html" class="cta-button">Cijene</a>
+                </div>
+                
+                <button class="mobile-menu-button" id="mobile-menu-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav class="mobile-nav" id="mobile-nav">
+                    <a href="site45-qa-me.html" class="nav-item">QA Usluge</a>
+                    <a href="site45-ai-me.html" class="nav-item">AI Usluge</a>
+                    <a href="site45-partner-me.html" class="nav-item">Zašto Sa Nama</a>
+                    <a href="site45-knowledge-me.html" class="nav-item">Centar Znanja</a>
+                    <a href="site45-about-me.html" class="nav-item">O Nama</a>
+                    <div class="language-switcher" style="justify-content: center; margin: 1rem 0;">
+                        <select id="mobile-language-select" onchange="switchLanguage()">
+                            <option value="en">🇺🇸 English</option>
+                            <option value="me" selected>🇲🇪 Crnogorski</option>
+                        </select>
+                    </div>
+                    <a href="site45-pricing-me.html" class="cta-button">Cijene</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Kontakt <span class="highlight">GoGreens</span></h1>
+                <p class="hero-description">Recite nam o vašem proizvodu i ciljevima. Odgovorićemo vam u roku od jednog radnog dana.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="grid cols-2">
+                <div class="card">
+                    <form id="contact-form">
+                        <div class="row">
+                            <div>
+                                <label class="label" for="name">Puno Ime</label>
+                                <input class="input" type="text" id="name" name="name" placeholder="Marko Petrović" required />
+                            </div>
+                            <div>
+                                <label class="label" for="email">Email</label>
+                                <input class="input" type="email" id="email" name="email" placeholder="marko@firma.com" required />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>
+                                <label class="label" for="company">Kompanija</label>
+                                <input class="input" type="text" id="company" name="company" placeholder="ABC d.o.o." />
+                            </div>
+                            <div>
+                                <label class="label" for="phone">Telefon</label>
+                                <input class="input" type="tel" id="phone" name="phone" placeholder="+382 67 123 456" />
+                            </div>
+                        </div>
+                        <div style="margin-top:1rem">
+                            <label class="label" for="message">Kako možemo pomoći?</label>
+                            <textarea class="textarea" id="message" name="message" placeholder="Recite nam o vašim QA potrebama..." required></textarea>
+                        </div>
+                        <div style="margin-top:1rem">
+                            <button type="submit" class="button-primary">Pošaljite Poruku</button>
+                        </div>
+                    </form>
+                </div>
+                <aside class="card">
+                    <div class="info">
+                        <div class="info-item"><span class="dot"></span><div><strong>Prodaja:</strong><br/><a href="mailto:rozi.unix@gmail.com">rozi.unix@gmail.com</a></div></div>
+                        <div class="info-item"><span class="dot"></span><div><strong>Podrška:</strong><br/><a href="mailto:info@gogreens.online">info@gogreens.online</a></div></div>
+                        <div class="info-item"><span class="dot"></span><div><strong>Telefon:</strong><br/>+382-68334611</div></div>
+                        <div class="info-item"><span class="dot"></span><div><strong>Adresa:</strong><br/>Budva, Crna Gora</div></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <nav class="footer-nav">
+                    <a href="site45-me.html">Početna</a>
+                    <a href="site45-qa-me.html">QA Usluge</a>
+                    <a href="site45-pricing-me.html">Cijene</a>
+                    <a href="site45-team-me.html">Tim</a>
+                    <a href="site45-contact-me.html">Kontakt</a>
+                </nav>
+                <p>© 2025 GoGreens. Sva prava zadržana. Kvalitet Koji Stvara Vrijednost.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init({
+                publicKey: "9RvHSlpnMHkCJwBC5", // Your EmailJS public key
+            });
+        })();
+
+        // Language switching functionality
+        function switchLanguage() {
+            const languageSelect = document.getElementById('language-select');
+            const mobileLanguageSelect = document.getElementById('mobile-language-select');
+            
+            // Sync both selectors
+            const selectedLang = languageSelect ? languageSelect.value : mobileLanguageSelect.value;
+            if (languageSelect) languageSelect.value = selectedLang;
+            if (mobileLanguageSelect) mobileLanguageSelect.value = selectedLang;
+            
+            // Store language preference
+            localStorage.setItem('preferred-language', selectedLang);
+            
+            // Redirect to appropriate page
+            const currentPage = window.location.pathname.split('/').pop();
+            let targetPage;
+            
+            if (selectedLang === 'me') {
+                // Already on Montenegrin version
+                return;
+            } else {
+                // Switch to English version
+                if (currentPage === 'site45-contact-me.html') {
+                    targetPage = 'site45-contact.html';
+                } else {
+                    targetPage = currentPage.replace('-me.html', '.html');
+                }
+            }
+            
+            window.location.href = targetPage;
+        }
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            if (mobileMenuButton && mobileNav) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenuButton.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on nav items
+                const navItems = mobileNav.querySelectorAll('.nav-item, .cta-button');
+                navItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        mobileMenuButton.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenuButton.contains(event.target) && !mobileNav.contains(event.target)) {
+                        mobileMenuButton.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                    }
+                });
+            }
+
+            // Contact form submission
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = {
+                        from_name: document.getElementById('name').value,
+                        from_email: document.getElementById('email').value,
+                        company: document.getElementById('company').value,
+                        phone: document.getElementById('phone').value,
+                        message: document.getElementById('message').value,
+                        to_email: 'rozi.unix@gmail.com' // Your email address
+                    };
+                    
+                    // Show sending status
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    submitButton.textContent = 'Šalje se...';
+                    submitButton.disabled = true;
+                    
+                    // Send email using EmailJS
+                    emailjs.send('service_2jjjllk', 'template_eprag4z', formData) // Your service and template IDs
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            
+                            // Show success message
+                            showMessage('Poruka je uspješno poslana! Uskoro ćemo vam se javiti.', 'success');
+                            
+                            // Reset form
+                            contactForm.reset();
+                            
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            
+                            // Show error message
+                            showMessage('Greška pri slanju poruke. Molimo pokušajte ponovo ili nas kontaktirajte direktno.', 'error');
+                        })
+                        .finally(function() {
+                            // Reset button
+                            submitButton.textContent = originalText;
+                            submitButton.disabled = false;
+                        });
+                });
+            }
+
+            // Function to show messages
+            function showMessage(text, type) {
+                // Remove existing messages
+                const existingMessage = document.querySelector('.form-message');
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+                
+                // Create message element
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `form-message form-message-${type}`;
+                messageDiv.textContent = text;
+                
+                // Insert message after form
+                const form = document.getElementById('contact-form');
+                form.parentNode.insertBefore(messageDiv, form.nextSibling);
+                
+                // Auto-remove message after 5 seconds
+                setTimeout(() => {
+                    messageDiv.remove();
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,34 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="me">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoGreens - Pricing | Simple, Transparent Plans</title>
-  <meta name="description" content="Choose the perfect QA plan: Starter, Professional, or Enterprise custom. Save up to 70% vs in‑house. Add‑ons for mobile, API, load, and security." />
+  <title>GoGreens - Cijene | Jednostavni, Transparentni Planovi</title>
+  <meta name="description" content="Izaberite perfektni QA plan: Starter, Profesionalni, ili Enterprise prilagođen. Uštedite do 70% vs interna rješenja. Dodaci za mobile, API, load i security testiranje." />
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     :root{--primary:222.2 84% 4.9%;--primary-foreground:210 40% 98%;--secondary:210 40% 96%;--secondary-foreground:222.2 84% 4.9%;--muted:210 40% 96%;--muted-foreground:215.4 16.3% 46.9%;--accent:210 40% 96%;--accent-foreground:222.2 84% 4.9%;--destructive:0 84.2% 60.2%;--destructive-foreground:210 40% 98%;--border:214.3 31.8% 91.4%;--radius:.5rem;--background:0 0% 100%;--foreground:222.2 84% 4.9%;--card:0 0% 100%;--card-foreground:222.2 84% 4.9%;--gradient-primary:linear-gradient(135deg, hsl(var(--primary)), hsl(220 100% 20%));--gradient-hero:linear-gradient(135deg, hsl(210 100% 98%), hsl(220 100% 95%));--shadow-soft:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);--shadow-medium:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06)}
     body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;color:hsl(var(--foreground));background:hsl(var(--background))}
-    .container{max-width:1200px;margin:0 auto;padding:0 0.75rem}
-    @media (min-width: 640px){.container{padding:0 1rem}}
-    @media (min-width: 1024px){.container{padding:0 1.5rem}}
+    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
     .header{background:hsl(var(--background));backdrop-filter:blur(10px);position:sticky;top:0;z-index:1000;border-bottom:1px solid hsl(var(--border))}
     .header-content{display:flex;align-items:center;justify-content:space-between;height:4rem;position:relative}
     .logo{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
     .logo-icon{width:2rem;height:2rem;background:var(--gradient-primary);border-radius:.5rem;display:flex;align-items:center;justify-content:center;color:hsl(var(--primary-foreground));font-weight:700;font-size:.875rem}
     .logo-text{font-size:1.25rem;font-weight:700;color:hsl(var(--foreground))}
-    @media (max-width: 480px){.logo-text{font-size:1.1rem}}
-            .logo-tagline {
-            font-size: 1.075rem;
-            color: hsl(var(--muted-foreground));
-            font-weight: bold;
-            display: none;
-        }
+    .logo-tagline{font-size:1.075rem;color:hsl(var(--muted-foreground));font-weight:bold;display:none}
     @media (min-width:640px){.logo-tagline{display:block}}
     @media (max-width: 768px){.logo-tagline{display:none}}
     .nav{display:none;gap:2rem}
     @media (min-width:1024px){.nav{display:flex}}
-    .nav-item{color:hsl(var(--foreground));text-decoration:none;transition:color .2s}
+    .nav-item{color:hsl(var(--foreground));text-decoration:none;transition:color .2s;padding:.5rem 0}
     .nav-item:hover,.nav-item.active{color:hsl(var(--primary))}
     .cta-button{display:none;background:var(--gradient-primary);color:hsl(var(--primary-foreground));padding:.5rem 1rem;border:none;border-radius:var(--radius);text-decoration:none;font-weight:500;transition:all .2s}
     @media (min-width:768px){.cta-button{display:inline-flex}}
@@ -49,10 +41,8 @@
     .mobile-nav .nav-item{padding:.75rem 0;border-bottom:1px solid hsl(var(--border))}
     .mobile-nav .nav-item:last-child{border-bottom:none}
     .mobile-nav .cta-button{display:inline-flex;justify-content:center;margin-top:1rem}
-    .hero{background:var(--gradient-hero);padding:3rem 0 5rem}
-    @media (min-width: 768px){.hero{padding:4rem 0 6rem}}
-    @media (min-width: 1024px){.hero{padding:5rem 0 7rem}}
-    .hero-content{max-width:48rem;margin:0 auto;text-align:center}
+    .hero{background:var(--gradient-hero);padding:5rem 0 7rem}
+    .hero-content{text-align:center;max-width:48rem;margin:0 auto}
     .hero-title{font-size:2.5rem;font-weight:700;line-height:1.2;color:hsl(var(--foreground));margin-bottom:1.5rem}
     @media (min-width:1024px){.hero-title{font-size:3rem}}
     .hero-title .highlight{color:hsl(var(--primary))}
@@ -86,6 +76,7 @@
     .footer-nav{display:flex;justify-content:center;gap:2rem;margin-bottom:1rem;flex-wrap:wrap}
     .footer-nav a{color:hsl(var(--muted-foreground));text-decoration:none;transition:color .2s}
     .footer-nav a:hover{color:hsl(var(--primary))}
+    .muted{color:hsl(var(--muted-foreground))}
   </style>
 </head>
 <body>
@@ -95,42 +86,44 @@
         <div class="logo">
           <div class="logo-icon">GoG</div>
           <span class="logo-text">GoGreens</span>
-          <span class="logo-tagline">Quality That Creates Value</span>
+          <span class="logo-tagline">Kvalitet Koji Stvara Vrijednost</span>
         </div>
         <nav class="nav">
-          <a href="site45-qa.html" class="nav-item">QA Services</a>
-          <a href="site45-ai.html" class="nav-item">AI Services</a>
-          <a href="site45-partner.html" class="nav-item">Why Partner With Us</a>
-          <a href="site45-knowledge.html" class="nav-item">Knowledge Center</a>
-          <a href="site45-about.html" class="nav-item">About Us</a>
+          <a href="site45-qa-me.html" class="nav-item">QA Usluge</a>
+          <a href="site45-ai-me.html" class="nav-item">AI Usluge</a>
+          <a href="site45-partner-me.html" class="nav-item">Zašto Sa Nama</a>
+          <a href="site45-knowledge-me.html" class="nav-item">Centar Znanja</a>
+          <a href="site45-about-me.html" class="nav-item">O Nama</a>
         </nav>
         <div style="display: flex; align-items: center; gap: 1rem;">
           <div class="language-switcher">
             <select id="language-select" onchange="switchLanguage()">
-              <option value="en" selected>EN</option>
-              <option value="me">ME</option>
+              <option value="en">🇺🇸 EN</option>
+              <option value="me" selected>🇲🇪 ME</option>
             </select>
           </div>
-          <a href="site45.html" class="cta-button">Back to Home</a>
+          <a href="site45-me.html" class="cta-button">Nazad na Početnu</a>
         </div>
+        
         <button class="mobile-menu-button" id="mobile-menu-button">
           <span></span>
           <span></span>
           <span></span>
         </button>
+        
         <nav class="mobile-nav" id="mobile-nav">
-          <a href="site45-qa.html" class="nav-item">QA Services</a>
-          <a href="site45-ai.html" class="nav-item">AI Services</a>
-          <a href="site45-partner.html" class="nav-item">Why Partner With Us</a>
-          <a href="site45-knowledge.html" class="nav-item">Knowledge Center</a>
-          <a href="site45-about.html" class="nav-item">About Us</a>
+          <a href="site45-qa-me.html" class="nav-item">QA Usluge</a>
+          <a href="site45-ai-me.html" class="nav-item">AI Usluge</a>
+          <a href="site45-partner-me.html" class="nav-item">Zašto Sa Nama</a>
+          <a href="site45-knowledge-me.html" class="nav-item">Centar Znanja</a>
+          <a href="site45-about-me.html" class="nav-item">O Nama</a>
           <div class="language-switcher" style="justify-content: center; margin: 1rem 0;">
             <select id="mobile-language-select" onchange="switchLanguage()">
-              <option value="en" selected>🇺🇸 English</option>
-              <option value="me">🇲🇪 Crnogorski</option>
+              <option value="en">🇺🇸 English</option>
+              <option value="me" selected>🇲🇪 Crnogorski</option>
             </select>
           </div>
-          <a href="site45.html" class="cta-button">Back to Home</a>
+          <a href="site45-me.html" class="cta-button">Nazad na Početnu</a>
         </nav>
       </div>
     </div>
@@ -139,8 +132,8 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title">Simple, <span class="highlight">Transparent</span> Pricing</h1>
-        <p class="hero-description">All plans include core QA services and scale as your needs grow. Save up to 70% vs in‑house teams.</p>
+        <h1 class="hero-title">Jednostavne, <span class="highlight">Transparentne</span> Cijene</h1>
+        <p class="hero-description">Svi planovi uključuju osnovne QA usluge i skaliraju se kako vaše potrebe rastu. Uštedite do 70% vs interna rješenja.</p>
       </div>
     </div>
   </section>
@@ -150,64 +143,64 @@
       <div class="plans">
         <div class="plan">
           <div>
-            <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:.25rem;">Starter</h3>
-            <p class="muted">Perfect for small teams and projects</p>
+            <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:.25rem;">Početni</h3>
+            <p class="muted">Savršen za male timove i projekte</p>
           </div>
           <div>
-            <span class="price">$2,500</span><span class="period">/month</span>
+            <span class="price">$2,500</span><span class="period">/mjesec</span>
           </div>
           <div class="features">
-            <div class="feature"><span class="dot"></span><span>Manual Testing Services</span></div>
-            <div class="feature"><span class="dot"></span><span>Basic Test Documentation</span></div>
-            <div class="feature"><span class="dot"></span><span>Email Support</span></div>
-            <div class="feature"><span class="dot"></span><span>Monthly Reports</span></div>
-            <div class="feature"><span class="dot"></span><span>Up to 2 Projects</span></div>
-            <div class="feature"><span class="dot"></span><span>Standard Response Time</span></div>
+            <div class="feature"><span class="dot"></span><span>Usluge Manuelnog Testiranja</span></div>
+            <div class="feature"><span class="dot"></span><span>Osnovna Test Dokumentacija</span></div>
+            <div class="feature"><span class="dot"></span><span>Email Podrška</span></div>
+            <div class="feature"><span class="dot"></span><span>Mjesečni Izvještaji</span></div>
+            <div class="feature"><span class="dot"></span><span>Do 2 Projekta</span></div>
+            <div class="feature"><span class="dot"></span><span>Standardno Vrijeme Odgovora</span></div>
           </div>
-          <a class="button-outline" href="site45-contact.html">Get Started</a>
+          <a class="button-outline" href="site45-contact-me.html">Počni</a>
         </div>
         <div class="plan popular">
-          <span class="badge">Most Popular</span>
+          <span class="badge">Najpopularniji</span>
           <div>
-            <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:.25rem;">Professional</h3>
-            <p class="muted">Most popular for growing companies</p>
+            <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:.25rem;">Profesionalni</h3>
+            <p class="muted">Najpopularniji za kompanije u rastu</p>
           </div>
           <div>
-            <span class="price">$5,000</span><span class="period">/month</span>
+            <span class="price">$5,000</span><span class="period">/mjesec</span>
           </div>
           <div class="features">
-            <div class="feature"><span class="dot"></span><span>Manual & Automated Testing</span></div>
-            <div class="feature"><span class="dot"></span><span>Comprehensive Test Strategy</span></div>
-            <div class="feature"><span class="dot"></span><span>Priority Support</span></div>
-            <div class="feature"><span class="dot"></span><span>Weekly Reports & Analytics</span></div>
-            <div class="feature"><span class="dot"></span><span>Up to 5 Projects</span></div>
-            <div class="feature"><span class="dot"></span><span>Dedicated QA Engineer</span></div>
-            <div class="feature"><span class="dot"></span><span>Performance Testing</span></div>
-            <div class="feature"><span class="dot"></span><span>Security Testing Basics</span></div>
+            <div class="feature"><span class="dot"></span><span>Manuellno i Automatizirano Testiranje</span></div>
+            <div class="feature"><span class="dot"></span><span>Sveobuhvatna Test Strategija</span></div>
+            <div class="feature"><span class="dot"></span><span>Prioritetna Podrška</span></div>
+            <div class="feature"><span class="dot"></span><span>Sedmični Izvještaji i Analitika</span></div>
+            <div class="feature"><span class="dot"></span><span>Do 5 Projekata</span></div>
+            <div class="feature"><span class="dot"></span><span>Posvećeni QA Inženjer</span></div>
+            <div class="feature"><span class="dot"></span><span>Testiranje Performansi</span></div>
+            <div class="feature"><span class="dot"></span><span>Osnovno Sigurnosno Testiranje</span></div>
           </div>
-          <a class="button-primary" href="site45-contact.html">Get Started</a>
+          <a class="button-primary" href="site45-contact-me.html">Počni</a>
         </div>
         <div class="plan">
           <div>
             <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:.25rem;">Enterprise</h3>
-            <p class="muted">Tailored solutions for large organizations</p>
+            <p class="muted">Prilagođena rješenja za velike organizacije</p>
           </div>
           <div>
-            <span class="price">Custom</span>
+            <span class="price">Prilagođeno</span>
           </div>
           <div class="features">
-            <div class="feature"><span class="dot"></span><span>Full QA Team Integration</span></div>
-            <div class="feature"><span class="dot"></span><span>AI‑Powered Testing</span></div>
-            <div class="feature"><span class="dot"></span><span>24/7 Support</span></div>
-            <div class="feature"><span class="dot"></span><span>Real‑time Analytics</span></div>
-            <div class="feature"><span class="dot"></span><span>Unlimited Projects</span></div>
-            <div class="feature"><span class="dot"></span><span>Dedicated Team Lead</span></div>
-            <div class="feature"><span class="dot"></span><span>Advanced Security Testing</span></div>
-            <div class="feature"><span class="dot"></span><span>DevOps Integration</span></div>
-            <div class="feature"><span class="dot"></span><span>Custom Reporting</span></div>
-            <div class="feature"><span class="dot"></span><span>SLA Guarantees</span></div>
+            <div class="feature"><span class="dot"></span><span>Potpuna QA Tim Integracija</span></div>
+            <div class="feature"><span class="dot"></span><span>AI-Powered Testiranje</span></div>
+            <div class="feature"><span class="dot"></span><span>24/7 Podrška</span></div>
+            <div class="feature"><span class="dot"></span><span>Real-time Analitika</span></div>
+            <div class="feature"><span class="dot"></span><span>Neograničeni Projekti</span></div>
+            <div class="feature"><span class="dot"></span><span>Posvećeni Tim Lead</span></div>
+            <div class="feature"><span class="dot"></span><span>Napredno Sigurnosno Testiranje</span></div>
+            <div class="feature"><span class="dot"></span><span>DevOps Integracija</span></div>
+            <div class="feature"><span class="dot"></span><span>Prilagođeno Izvještavanje</span></div>
+            <div class="feature"><span class="dot"></span><span>SLA Garancije</span></div>
           </div>
-          <a class="button-primary" href="site45-contact.html">Contact Sales</a>
+          <a class="button-primary" href="site45-contact-me.html">Kontakt Prodaja</a>
         </div>
       </div>
     </div>
@@ -215,25 +208,25 @@
 
   <section class="section" style="background:hsl(var(--muted));">
     <div class="container">
-      <h2 class="section-title">Add‑On Services</h2>
-      <p class="section-description">Enhance your plan with specialized testing add‑ons tailored to your product.</p>
+      <h2 class="section-title">Dodatne Usluge</h2>
+      <p class="section-description">Poboljšajte vaš plan sa specijaliziranim testiranje dodacima prilagođenim vašem proizvodu.</p>
       <div class="addons">
-        <div class="addon"><div class="addon-head"><h3>Mobile Testing</h3><strong>$1,200/month</strong></div><p class="muted">Cross‑platform mobile app testing</p></div>
-        <div class="addon"><div class="addon-head"><h3>API Testing</h3><strong>$800/month</strong></div><p class="muted">Comprehensive API validation and testing</p></div>
-        <div class="addon"><div class="addon-head"><h3>Load Testing</h3><strong>$1,500/month</strong></div><p class="muted">Performance and scalability testing</p></div>
-        <div class="addon"><div class="addon-head"><h3>Security Audit</h3><strong>$2,000/project</strong></div><p class="muted">Comprehensive security assessment</p></div>
+        <div class="addon"><div class="addon-head"><h3>Mobilno Testiranje</h3><strong>$1,200/mjesec</strong></div><p class="muted">Cross-platform mobile app testiranje</p></div>
+        <div class="addon"><div class="addon-head"><h3>API Testiranje</h3><strong>$800/mjesec</strong></div><p class="muted">Sveobuhvatna API validacija i testiranje</p></div>
+        <div class="addon"><div class="addon-head"><h3>Load Testiranje</h3><strong>$1,500/mjesec</strong></div><p class="muted">Testiranje performansi i skalabilnosti</p></div>
+        <div class="addon"><div class="addon-head"><h3>Sigurnosni Audit</h3><strong>$2,000/projekat</strong></div><p class="muted">Sveobuhvatna sigurnosna procjena</p></div>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <h2 class="section-title">Često Postavljana Pitanja</h2>
       <div class="faq">
-        <div class="qa"><h3>What's included in the setup?</h3><p class="muted">Initial assessment, test strategy, and team onboarding tailored to your product.</p></div>
-        <div class="qa"><h3>Can I change plans later?</h3><p class="muted">Yes, you can upgrade or downgrade anytime; changes apply next billing cycle.</p></div>
-        <div class="qa"><h3>Do you offer custom contracts?</h3><p class="muted">Enterprise contracts are fully customizable to your budget and timeline.</p></div>
-        <div class="qa"><h3>What technologies do you support?</h3><p class="muted">Web, mobile, APIs, desktop, and cloud across modern toolchains.</p></div>
+        <div class="qa"><h3>Šta je uključeno u setup?</h3><p class="muted">Početna procjena, test strategija i tim onboarding prilagođen vašem proizvodu.</p></div>
+        <div class="qa"><h3>Mogu li promijeniti planove kasnije?</h3><p class="muted">Da, možete upgrade-ovati ili downgrade-ovati bilo kada; promjene se primjenjuju u sljedećem billing ciklusu.</p></div>
+        <div class="qa"><h3>Nudite li prilagođene ugovore?</h3><p class="muted">Enterprise ugovori su potpuno prilagodljivi vašem budžetu i vremenskim okvirima.</p></div>
+        <div class="qa"><h3>Koje tehnologije podržavate?</h3><p class="muted">Web, mobile, API, desktop i cloud kroz moderne toolchain-ove.</p></div>
       </div>
     </div>
   </section>
@@ -242,16 +235,17 @@
     <div class="container">
       <div class="footer-content">
         <nav class="footer-nav">
-          <a href="site45.html">Home</a>
-          <a href="site45-services.html">Services</a>
-          <a href="site45-pricing.html">Pricing</a>
-          <a href="site45-team.html">Team</a>
-          <a href="site45-contact.html">Contact</a>
+          <a href="site45-me.html">Početna</a>
+          <a href="site45-qa-me.html">QA Usluge</a>
+          <a href="site45-pricing-me.html">Cijene</a>
+          <a href="site45-team-me.html">Tim</a>
+          <a href="site45-contact-me.html">Kontakt</a>
         </nav>
-        <p>2025 © GoGreens. Quality That Creates Value.</p>
+        <p>2025 © GoGreens. Kvalitet Koji Stvara Vrijednost.</p>
       </div>
     </div>
   </footer>
+  
   <script>
     function switchLanguage() {
       const languageSelect = document.getElementById('language-select');
@@ -267,13 +261,13 @@
       let targetPage;
       
       if (selectedLang === 'me') {
-        if (currentPage === 'site45-pricing.html') {
-          targetPage = 'site45-pricing-me.html';
-        } else {
-          targetPage = currentPage.replace('.html', '-me.html');
-        }
-      } else {
         return;
+      } else {
+        if (currentPage === 'site45-pricing-me.html') {
+          targetPage = 'site45-pricing.html';
+        } else {
+          targetPage = currentPage.replace('-me.html', '.html');
+        }
       }
       
       window.location.href = targetPage;
